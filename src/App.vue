@@ -21,6 +21,11 @@
   import header from './components/header/header.vue'
 
   export default {
+    data () {
+      return {
+        seller: {}
+      }
+    },
     components: {
       'v-header': header
     }
@@ -32,8 +37,19 @@
   .tab
     display: flex;
     width: 100%;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid rgba(7, 17, 27, 0.1);
 
     .tab-item
-      flex: 4;
+      flex: 1;
       text-align: center;
+      & > a
+        display: block;
+        font-size: 14px;
+        color: rgb(77, 85, 93);
+
+        &.active
+          color: #f01414;
+
 </style>
