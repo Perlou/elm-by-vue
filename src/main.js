@@ -8,6 +8,7 @@
 import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
+import VueResouce from 'vue-resource'
 
 // components
 import goods from './components/goods/goods'
@@ -15,6 +16,7 @@ import ratings from './components/ratings/ratings'
 import seller from './components/seller/seller'
 
 Vue.use(VueRouter)
+Vue.use(VueResouce)
 
 let app = Vue.extend(App)
 let router = new VueRouter({
