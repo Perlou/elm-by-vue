@@ -1,0 +1,12 @@
+// @mixin bg-image($url)
+//   background-image: url($url + "@2x.png");
+//   @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3);
+//     background-image: url($url + "@3x.png");
+
+@mixin center($size) {
+    left: 50%;
+    margin-left: -($size / 2);
+    margin-top: -($size / 2) - 2px;
+    position: absolute;
+    top: 50%;
+}
