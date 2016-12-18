@@ -49,6 +49,10 @@
 
     .avatar
       display: inline-block;
+      vertical-align: top;
+
+      img
+        border-radius: 2px;
 
     .content
       display: inline-block;
@@ -68,5 +72,29 @@
         margin-left: 6px;
         font-size: 16px;
         line-height: 18px;
+
+    .description
+      margin-bottom: 10px;
+      line-height: 12px;
+      font-size: 12px;
+
+    .support
+      .icon
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin-right: 4px;
+        background-size: 12px 12px;
+        background-repeat: no-repeat;
+
+        &.decrease
+
+        &.discount
+
+        &.gurantee
+
+        &.invoice
+
+        &.special
 
 </style>
