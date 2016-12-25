@@ -17,12 +17,22 @@
           {{seller.description}}/{{seller.deliveryTime}}分钟送达
         </div>
         <div v-if="seller.supports" class="support">
-          <span class="icon"></span>
+          <span class="icon" :class="classMap[seller.supports[0].type]"></span>
           <span class="text">{{seller.supports[0].description}}</span>
         </div>
       </div>
+      <div v-if="seller.supports" class="support-count">
+        <span class="count">{{seller.supports.length}}个</span>
+        <i class=""></i>
+      </div>
     </div>
-    <div class="header-bulletin-wrap"></div>
+    <div class="header-bulletin-wrap">
+      <span class="bulletin-title"></span><span class="bulletin-text">{{seller.bulletin}}</span>
+      <i></i>
+    </div>
+    <div class="header-background">
+      <img :src="seller.avatar" width="100%" height="100%" alt="">
+    </div>
   </div>
 </template>
 
@@ -32,6 +42,9 @@
       seller: {
         type: Object
       }
+    },
+    created () {
+      this.classMap = ['decrease', 'discount', 'special', 'invoice', 'gurantee']
     }
   }
 </script>
@@ -41,11 +54,14 @@
 
   .header
     color: #FFFFFF;
-    background: #000;
+    position: relative;
+    background: rgba(7, 17, 27, 0.5);
+    overflow: hidden;
 
   .header-content-wrap
     padding: 24px 12px 18px 24px;
-    font-size: 0
+    font-size: 0;
+    position: relative;
 
     .avatar
       display: inline-block;
@@ -81,6 +97,7 @@
     .support
       .icon
         display: inline-block;
+        vertical-align: top;
         width: 12px;
         height: 12px;
         margin-right: 4px;
@@ -96,5 +113,60 @@
         &.invoice
 
         &.special
+
+      .text
+        line-height: 12px;
+        font-size: 10px;
+
+    .support-count
+      position: absolute;
+      right: 12px;
+      bottom: 18px;
+      padding: 0 8px;
+      height: 24px;
+      line-height: 24px;
+      border-radius: 14px;
+      background: rgba(0, 0, 0, 0.2);
+      text-align: center;
+
+      .count
+        vertical-align: top;
+        font-size: 10px;
+
+      .icon-arrow-right
+        font-size: 10px;
+
+  .header-bulletin-wrap
+    height: 28px;
+    line-height: 28px;
+    position: relative;
+    padding: 0 22px 0 12px;
+    background: rgba(7, 17, 27, 0.2);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    .bulletin-title
+      display: inline-block;
+      vertical-align: top;
+      width: 22px;
+      height: 12px;
+      margin-top: 8px;
+      background: red;
+
+    .bulletin-text
+      vertical-align: top;
+      margin: 0 4px;
+      font-size: 10px;
+      font-weight: 200;
+
+  .header-background
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(10px);
 
 </style>
